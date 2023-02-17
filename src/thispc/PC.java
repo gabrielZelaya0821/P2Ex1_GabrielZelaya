@@ -18,30 +18,37 @@ public class PC {
     public PC() {
     }
     
-    public void ping(String IpAddress,String mask){
-        String lastDigts = "";
+    public boolean ping(String IpAddress,String mask){
+        String[] lastDigts = mask.split(".");//separa la mask por puntos
+        String maskBin = convertirDecimalABinarioManual(Long.parseLong(lastDigts[3]));//convierte en decimal despues del ultimo punto
         
-        for (int i = 0; i < mask.length(); i++) {
-            if(i >= mask.length()-3){
-                lastDigts = lastDigts + i;
+        String[] Ip1 = this.IpAddress.split(".");//separa la ip1 por puntos
+        String IpBin1 = convertirDecimalABinarioManual(Long.parseLong(Ip1[3]));//convierte en decimal despues del ultimo punto
+        
+        String[] Ip2 = IpAddress.split(".");//separa la ip2 por puntos
+        String IpBin2 = convertirDecimalABinarioManual(Long.parseLong(Ip2[3]));//convierte en decimal despues del ultimo punto
+        
+        int cantidadUnos = 0;
+        //cuenta la cantidad de unos
+        for (int i = 0; i < maskBin.length(); i++) {
+            if(maskBin.charAt(i) == '1'){
+                cantidadUnos++;
             }
         }
         
-        String maskBin = convertirDecimalABinarioManual(Long.parseLong(lastDigts));
-        String[] Ip1 = this.IpAddress.split(".");
-        String IpBin1 = convertirDecimalABinarioManual(Long.parseLong(Ip1[3]));
-        String[] Ip2 = IpAddress.split(".");
-        String IpBin2 = convertirDecimalABinarioManual(Long.parseLong(Ip2[3]));
-        
-        int cantidadUno = 0;
-        for (int i = 0; i < IpBin1.length(); i++) {
-            if(mask.charAt(i) == '1'){
-                cantidadUno++;
-            }
+        String ip1 = "";
+        String ip2 = "";
+        for (int i = 0; i < cantidadUnos; i++) {
+            ip1 = ip1+IpBin1.charAt(i);
+            ip2 = ip1+IpBin2.charAt(i);
         }
+
+        return ip1.equals(ip2);
     }
     
-    public String convertirDecimalABinarioManual(long decimal) {
+    
+    
+    private String convertirDecimalABinarioManual(long decimal) {
 	if (decimal <= 0) {
 		return "0";
 	}
