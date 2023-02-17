@@ -34,9 +34,23 @@ public class GUI extends javax.swing.JFrame {
         JP_listar = new javax.swing.JPanel();
         JP_eliminar = new javax.swing.JPanel();
         JF_crearPC = new javax.swing.JFrame();
-        jPanel1 = new javax.swing.JPanel();
+        bg_crearPC = new javax.swing.JPanel();
         JL_ip = new javax.swing.JLabel();
         JTF_ip = new javax.swing.JTextField();
+        JL_Mask = new javax.swing.JLabel();
+        JTF_mask = new javax.swing.JTextField();
+        JL_tarjetag = new javax.swing.JLabel();
+        JL_hostname1 = new javax.swing.JLabel();
+        JTF_hostname1 = new javax.swing.JTextField();
+        JL_RAM1 = new javax.swing.JLabel();
+        JTF_RAM1 = new javax.swing.JTextField();
+        JL_storage1 = new javax.swing.JLabel();
+        JTF_storage1 = new javax.swing.JTextField();
+        btn_sdd = new javax.swing.JRadioButton();
+        btn_hdd = new javax.swing.JRadioButton();
+        JL_type1 = new javax.swing.JLabel();
+        cb_tarjetag = new javax.swing.JCheckBox();
+        storageType = new javax.swing.ButtonGroup();
         bg_principal = new javax.swing.JPanel();
         btn_ingresar = new javax.swing.JButton();
         btn_crud = new javax.swing.JButton();
@@ -102,36 +116,69 @@ public class GUI extends javax.swing.JFrame {
 
         JF_crearPC.setBackground(new java.awt.Color(102, 102, 255));
         JF_crearPC.setResizable(false);
-        JF_crearPC.setSize(new java.awt.Dimension(436, 233));
+        JF_crearPC.setSize(new java.awt.Dimension(645, 470));
 
-        jPanel1.setBackground(new java.awt.Color(102, 102, 255));
-        jPanel1.setMinimumSize(new java.awt.Dimension(430, 221));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        bg_crearPC.setBackground(new java.awt.Color(102, 102, 255));
+        bg_crearPC.setMinimumSize(new java.awt.Dimension(430, 221));
+        bg_crearPC.setPreferredSize(new java.awt.Dimension(645, 470));
+        bg_crearPC.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         JL_ip.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         JL_ip.setText("IP Adress:");
-        jPanel1.add(JL_ip, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 60, 30));
+        bg_crearPC.add(JL_ip, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 60, 30));
 
         JTF_ip.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JTF_ipActionPerformed(evt);
             }
         });
-        jPanel1.add(JTF_ip, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, 260, 30));
+        bg_crearPC.add(JTF_ip, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, 200, 30));
+
+        JL_Mask.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        JL_Mask.setText("Mask:");
+        bg_crearPC.add(JL_Mask, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 50, 30));
+        bg_crearPC.add(JTF_mask, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, 200, 30));
+
+        JL_tarjetag.setText("Tarjeta Gráfica: ");
+        bg_crearPC.add(JL_tarjetag, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 100, 30));
+
+        JL_hostname1.setText("Hostname:");
+        bg_crearPC.add(JL_hostname1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 60, 30));
+        bg_crearPC.add(JTF_hostname1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, 200, 30));
+
+        JL_RAM1.setText("RAM:");
+        bg_crearPC.add(JL_RAM1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 60, 30));
+        bg_crearPC.add(JTF_RAM1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 200, 30));
+
+        JL_storage1.setText("Storage:");
+        bg_crearPC.add(JL_storage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 60, 30));
+        bg_crearPC.add(JTF_storage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, 200, 30));
+
+        storageType.add(btn_sdd);
+        btn_sdd.setText("SDD");
+        bg_crearPC.add(btn_sdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 310, -1, -1));
+
+        storageType.add(btn_hdd);
+        btn_hdd.setText("HDD");
+        bg_crearPC.add(btn_hdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 310, -1, -1));
+
+        JL_type1.setText("Storage Type:");
+        bg_crearPC.add(JL_type1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 80, 30));
+        bg_crearPC.add(cb_tarjetag, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, -1, -1));
 
         javax.swing.GroupLayout JF_crearPCLayout = new javax.swing.GroupLayout(JF_crearPC.getContentPane());
         JF_crearPC.getContentPane().setLayout(JF_crearPCLayout);
         JF_crearPCLayout.setHorizontalGroup(
             JF_crearPCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JF_crearPCLayout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
+                .addComponent(bg_crearPC, javax.swing.GroupLayout.DEFAULT_SIZE, 637, Short.MAX_VALUE)
                 .addContainerGap())
         );
         JF_crearPCLayout.setVerticalGroup(
             JF_crearPCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JF_crearPCLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(bg_crearPC, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -244,16 +291,30 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton Btn_PC;
     private javax.swing.JFrame CRUD;
     private javax.swing.JFrame JF_crearPC;
+    private javax.swing.JLabel JL_Mask;
+    private javax.swing.JLabel JL_RAM1;
+    private javax.swing.JLabel JL_hostname1;
     private javax.swing.JLabel JL_ip;
+    private javax.swing.JLabel JL_storage1;
+    private javax.swing.JLabel JL_tarjetag;
+    private javax.swing.JLabel JL_type1;
     private javax.swing.JPanel JP_crear;
     private javax.swing.JPanel JP_eliminar;
     private javax.swing.JPanel JP_listar;
+    private javax.swing.JTextField JTF_RAM1;
+    private javax.swing.JTextField JTF_hostname1;
     private javax.swing.JTextField JTF_ip;
+    private javax.swing.JTextField JTF_mask;
+    private javax.swing.JTextField JTF_storage1;
     private javax.swing.JTabbedPane JTP_crud;
+    private javax.swing.JPanel bg_crearPC;
     private javax.swing.JPanel bg_principal;
     private javax.swing.JButton btn_Laptop;
     private javax.swing.JButton btn_crud;
+    private javax.swing.JRadioButton btn_hdd;
     private javax.swing.JButton btn_ingresar;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JRadioButton btn_sdd;
+    private javax.swing.JCheckBox cb_tarjetag;
+    private javax.swing.ButtonGroup storageType;
     // End of variables declaration//GEN-END:variables
 }
