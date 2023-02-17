@@ -1,7 +1,5 @@
 package thispc;
 
-import manageExceptions.OpcionInvalida;
-
 /**
  *
  * @author gabri
@@ -12,12 +10,12 @@ public class PC_Escritorio extends PC{
     private String storageType;
     private boolean tarjetaGrafica;
 
-    public PC_Escritorio(int RAM, int storage, int storageType, boolean tarjetaGrafica, 
-            String ipAddress, String mask, String hostname) throws OpcionInvalida {
+    public PC_Escritorio(int RAM, int storage, String storageType, boolean tarjetaGrafica, 
+            String ipAddress, String mask, String hostname) {
         super(ipAddress, mask, hostname);
         this.RAM = RAM;
         this.storage = storage;
-        setStorageType(storageType);
+        this.storageType = storageType;
         this.tarjetaGrafica = tarjetaGrafica;
     }
 
@@ -47,12 +45,8 @@ public class PC_Escritorio extends PC{
         return storageType;
     }
 
-    public void setStorageType(int storageType) throws OpcionInvalida {
-        switch (storageType) {
-            case 1 -> this.storageType = "HDD";
-            case 2 -> this.storageType = "SDD";
-            default -> throw new OpcionInvalida("Opción inválida");
-        }
+    public void setStorageType(String storageType) {
+        this.storageType = storageType;
     }
 
     public boolean isTarjetaGrafica() {

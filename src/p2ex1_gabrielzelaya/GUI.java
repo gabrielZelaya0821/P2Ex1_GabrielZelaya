@@ -4,6 +4,11 @@
  */
 package p2ex1_gabrielzelaya;
 
+import java.util.ArrayList;
+import thispc.Laptop;
+import thispc.PC;
+import thispc.PC_Escritorio;
+
 /**
  *
  * @author gabri
@@ -50,7 +55,23 @@ public class GUI extends javax.swing.JFrame {
         btn_hdd = new javax.swing.JRadioButton();
         JL_type1 = new javax.swing.JLabel();
         cb_tarjetag = new javax.swing.JCheckBox();
+        btn_agregarPC = new javax.swing.JButton();
         storageType = new javax.swing.ButtonGroup();
+        JF_crearLaptop = new javax.swing.JFrame();
+        bg_laptop = new javax.swing.JPanel();
+        JL_ip2 = new javax.swing.JLabel();
+        JTF_ip2 = new javax.swing.JTextField();
+        JL_Mask2 = new javax.swing.JLabel();
+        JTF_mask2 = new javax.swing.JTextField();
+        JL_RGB = new javax.swing.JLabel();
+        JL_hostname2 = new javax.swing.JLabel();
+        JTF_hostname2 = new javax.swing.JTextField();
+        JL_marca = new javax.swing.JLabel();
+        JTF_marca = new javax.swing.JTextField();
+        JL_pantalla = new javax.swing.JLabel();
+        JTF_pantalla = new javax.swing.JTextField();
+        cb_RGB = new javax.swing.JCheckBox();
+        btn_agregarPC1 = new javax.swing.JButton();
         bg_principal = new javax.swing.JPanel();
         btn_ingresar = new javax.swing.JButton();
         btn_crud = new javax.swing.JButton();
@@ -70,6 +91,16 @@ public class GUI extends javax.swing.JFrame {
         JP_crear.add(Btn_PC, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 100, 50));
 
         btn_Laptop.setText("LAPTOP");
+        btn_Laptop.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_LaptopMouseClicked(evt);
+            }
+        });
+        btn_Laptop.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_LaptopActionPerformed(evt);
+            }
+        });
         JP_crear.add(btn_Laptop, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 140, 90, 50));
 
         JTP_crud.addTab("Crear", JP_crear);
@@ -166,6 +197,14 @@ public class GUI extends javax.swing.JFrame {
         bg_crearPC.add(JL_type1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 80, 30));
         bg_crearPC.add(cb_tarjetag, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, -1, -1));
 
+        btn_agregarPC.setText("Agregar");
+        btn_agregarPC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_agregarPCMouseClicked(evt);
+            }
+        });
+        bg_crearPC.add(btn_agregarPC, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 370, -1, -1));
+
         javax.swing.GroupLayout JF_crearPCLayout = new javax.swing.GroupLayout(JF_crearPC.getContentPane());
         JF_crearPC.getContentPane().setLayout(JF_crearPCLayout);
         JF_crearPCLayout.setHorizontalGroup(
@@ -179,6 +218,68 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(JF_crearPCLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(bg_crearPC, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        JF_crearLaptop.setBackground(new java.awt.Color(102, 102, 255));
+        JF_crearLaptop.setSize(new java.awt.Dimension(636, 463));
+
+        bg_laptop.setBackground(new java.awt.Color(102, 102, 255));
+        bg_laptop.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        JL_ip2.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        JL_ip2.setText("IP Adress:");
+        bg_laptop.add(JL_ip2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 60, 30));
+
+        JTF_ip2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JTF_ip2ActionPerformed(evt);
+            }
+        });
+        bg_laptop.add(JTF_ip2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, 200, 30));
+
+        JL_Mask2.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        JL_Mask2.setText("Mask:");
+        bg_laptop.add(JL_Mask2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 50, 30));
+        bg_laptop.add(JTF_mask2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, 200, 30));
+
+        JL_RGB.setText("RGB:");
+        bg_laptop.add(JL_RGB, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 50, 30));
+
+        JL_hostname2.setText("Hostname:");
+        bg_laptop.add(JL_hostname2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 60, 30));
+        bg_laptop.add(JTF_hostname2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, 200, 30));
+
+        JL_marca.setText("Marca:");
+        bg_laptop.add(JL_marca, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 60, 30));
+        bg_laptop.add(JTF_marca, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 200, 30));
+
+        JL_pantalla.setText("Pantalla:");
+        bg_laptop.add(JL_pantalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 60, 30));
+        bg_laptop.add(JTF_pantalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, 200, 30));
+        bg_laptop.add(cb_RGB, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, -1, -1));
+
+        btn_agregarPC1.setText("Agregar");
+        btn_agregarPC1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_agregarPC1MouseClicked(evt);
+            }
+        });
+        bg_laptop.add(btn_agregarPC1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 360, -1, -1));
+
+        javax.swing.GroupLayout JF_crearLaptopLayout = new javax.swing.GroupLayout(JF_crearLaptop.getContentPane());
+        JF_crearLaptop.getContentPane().setLayout(JF_crearLaptopLayout);
+        JF_crearLaptopLayout.setHorizontalGroup(
+            JF_crearLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JF_crearLaptopLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(bg_laptop, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        JF_crearLaptopLayout.setVerticalGroup(
+            JF_crearLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JF_crearLaptopLayout.createSequentialGroup()
+                .addComponent(bg_laptop, javax.swing.GroupLayout.DEFAULT_SIZE, 457, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -252,6 +353,58 @@ public class GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_JTF_ipActionPerformed
 
+    private void btn_agregarPCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_agregarPCMouseClicked
+        String tipo;
+        if(btn_hdd.isSelected()){
+            tipo = "HDD";
+        }else{
+            tipo = "SDD";
+        }
+        boolean flag = false;
+        if(cb_tarjetag.isSelected()){
+            flag = true;
+        }
+        PC_Escritorio pc = new PC_Escritorio(
+                Integer.parseInt(JTF_RAM1.getText()),
+                Integer.parseInt(JTF_storage1.getText()),
+                tipo,
+                flag,
+                JTF_ip.getText(),
+                JTF_mask.getText(),
+                JTF_hostname1.getText()
+        );
+        pcs.add(pc);
+    }//GEN-LAST:event_btn_agregarPCMouseClicked
+
+    private void btn_LaptopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_LaptopActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_LaptopActionPerformed
+
+    private void btn_LaptopMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_LaptopMouseClicked
+       CRUD.setVisible(false);
+        JF_crearLaptop.setLocationRelativeTo(this);
+        JF_crearLaptop.setVisible(true);
+    }//GEN-LAST:event_btn_LaptopMouseClicked
+
+    private void JTF_ip2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTF_ip2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTF_ip2ActionPerformed
+
+    private void btn_agregarPC1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_agregarPC1MouseClicked
+        boolean flag = false;
+        if(cb_RGB.isSelected()){
+            flag = true;
+        }
+        Laptop lp = new Laptop(JTF_marca.getText(),
+                JTF_pantalla.getText(), 
+                flag, 
+                JTF_ip2.getText(),
+                JTF_mask2.getText(), 
+                JTF_hostname2.getText()
+        );
+        pcs.add(lp);
+    }//GEN-LAST:event_btn_agregarPC1MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -290,11 +443,18 @@ public class GUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Btn_PC;
     private javax.swing.JFrame CRUD;
+    private javax.swing.JFrame JF_crearLaptop;
     private javax.swing.JFrame JF_crearPC;
     private javax.swing.JLabel JL_Mask;
+    private javax.swing.JLabel JL_Mask2;
     private javax.swing.JLabel JL_RAM1;
+    private javax.swing.JLabel JL_RGB;
     private javax.swing.JLabel JL_hostname1;
+    private javax.swing.JLabel JL_hostname2;
     private javax.swing.JLabel JL_ip;
+    private javax.swing.JLabel JL_ip2;
+    private javax.swing.JLabel JL_marca;
+    private javax.swing.JLabel JL_pantalla;
     private javax.swing.JLabel JL_storage1;
     private javax.swing.JLabel JL_tarjetag;
     private javax.swing.JLabel JL_type1;
@@ -303,18 +463,29 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JPanel JP_listar;
     private javax.swing.JTextField JTF_RAM1;
     private javax.swing.JTextField JTF_hostname1;
+    private javax.swing.JTextField JTF_hostname2;
     private javax.swing.JTextField JTF_ip;
+    private javax.swing.JTextField JTF_ip2;
+    private javax.swing.JTextField JTF_marca;
     private javax.swing.JTextField JTF_mask;
+    private javax.swing.JTextField JTF_mask2;
+    private javax.swing.JTextField JTF_pantalla;
     private javax.swing.JTextField JTF_storage1;
     private javax.swing.JTabbedPane JTP_crud;
     private javax.swing.JPanel bg_crearPC;
+    private javax.swing.JPanel bg_laptop;
     private javax.swing.JPanel bg_principal;
     private javax.swing.JButton btn_Laptop;
+    private javax.swing.JButton btn_agregarPC;
+    private javax.swing.JButton btn_agregarPC1;
     private javax.swing.JButton btn_crud;
     private javax.swing.JRadioButton btn_hdd;
     private javax.swing.JButton btn_ingresar;
     private javax.swing.JRadioButton btn_sdd;
+    private javax.swing.JCheckBox cb_RGB;
     private javax.swing.JCheckBox cb_tarjetag;
     private javax.swing.ButtonGroup storageType;
     // End of variables declaration//GEN-END:variables
+
+    ArrayList<PC> pcs = new ArrayList<>();
 }
