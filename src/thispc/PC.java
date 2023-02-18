@@ -42,8 +42,8 @@ public class PC {
             ip1 = ip1+IpBin1.charAt(i);
             ip2 = ip1+IpBin2.charAt(i);
         }
-
-        return ip1.equals(ip2);
+        
+        return ip1.equals(ip2) && Ip1[0].equals(Ip2[0]) && Ip1[1].equals(Ip2[1]) && Ip1[2].equals(Ip2[2]);
     }
     
     
