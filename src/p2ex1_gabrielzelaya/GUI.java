@@ -5,6 +5,8 @@
 package p2ex1_gabrielzelaya;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.YES_NO_OPTION;
 import javax.swing.table.DefaultTableModel;
 import thispc.Laptop;
 import thispc.PC;
@@ -42,6 +44,9 @@ public class GUI extends javax.swing.JFrame {
         btn_listaPC = new javax.swing.JButton();
         btn_listarLaptop = new javax.swing.JButton();
         JP_eliminar = new javax.swing.JPanel();
+        bg_eliminar = new javax.swing.JPanel();
+        btn_eliminarPC = new javax.swing.JButton();
+        btn_eliminarlaptop = new javax.swing.JButton();
         JF_crearPC = new javax.swing.JFrame();
         bg_crearPC = new javax.swing.JPanel();
         JL_ip = new javax.swing.JLabel();
@@ -86,7 +91,18 @@ public class GUI extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tb_listaLaptop = new javax.swing.JTable();
         regresar = new javax.swing.JButton();
-        regresar1 = new javax.swing.JButton();
+        eliminarLaptop = new javax.swing.JFrame();
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tb_listaLaptop1 = new javax.swing.JTable();
+        Btn_eliminarLaptop = new javax.swing.JButton();
+        btn_regresarEliminarlaptop = new javax.swing.JButton();
+        eliminarPC = new javax.swing.JFrame();
+        jPanel4 = new javax.swing.JPanel();
+        btn_eliminarListaPC = new javax.swing.JButton();
+        btn_regresarEliminarPC = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tb_listaPC1 = new javax.swing.JTable();
         bg_principal = new javax.swing.JPanel();
         btn_ingresar = new javax.swing.JButton();
         btn_crud = new javax.swing.JButton();
@@ -176,15 +192,56 @@ public class GUI extends javax.swing.JFrame {
 
         JTP_crud.addTab("Listar", JP_listar);
 
+        bg_eliminar.setBackground(new java.awt.Color(102, 102, 255));
+
+        btn_eliminarPC.setText("PC");
+        btn_eliminarPC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_eliminarPCMouseClicked(evt);
+            }
+        });
+
+        btn_eliminarlaptop.setText("Laptop");
+        btn_eliminarlaptop.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_eliminarlaptopMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout bg_eliminarLayout = new javax.swing.GroupLayout(bg_eliminar);
+        bg_eliminar.setLayout(bg_eliminarLayout);
+        bg_eliminarLayout.setHorizontalGroup(
+            bg_eliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bg_eliminarLayout.createSequentialGroup()
+                .addGap(160, 160, 160)
+                .addComponent(btn_eliminarPC)
+                .addGap(122, 122, 122)
+                .addComponent(btn_eliminarlaptop)
+                .addContainerGap(215, Short.MAX_VALUE))
+        );
+        bg_eliminarLayout.setVerticalGroup(
+            bg_eliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bg_eliminarLayout.createSequentialGroup()
+                .addGap(139, 139, 139)
+                .addGroup(bg_eliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_eliminarPC)
+                    .addComponent(btn_eliminarlaptop))
+                .addContainerGap(231, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout JP_eliminarLayout = new javax.swing.GroupLayout(JP_eliminar);
         JP_eliminar.setLayout(JP_eliminarLayout);
         JP_eliminarLayout.setHorizontalGroup(
             JP_eliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 647, Short.MAX_VALUE)
+            .addGroup(JP_eliminarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(bg_eliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         JP_eliminarLayout.setVerticalGroup(
             JP_eliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 399, Short.MAX_VALUE)
+            .addGroup(JP_eliminarLayout.createSequentialGroup()
+                .addComponent(bg_eliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         JTP_crud.addTab("Eliminar", JP_eliminar);
@@ -490,7 +547,180 @@ public class GUI extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        regresar1.setText("X");
+        eliminarLaptop.setSize(new java.awt.Dimension(756, 523));
+
+        jPanel3.setBackground(new java.awt.Color(102, 102, 255));
+
+        tb_listaLaptop1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "IP", "Mask", "Hostname", "Marca", "Pantalla", "RGB"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Boolean.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane3.setViewportView(tb_listaLaptop1);
+
+        Btn_eliminarLaptop.setText("Eliminar");
+        Btn_eliminarLaptop.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Btn_eliminarLaptopMouseClicked(evt);
+            }
+        });
+
+        btn_regresarEliminarlaptop.setText("X");
+        btn_regresarEliminarlaptop.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_regresarEliminarlaptopMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(0, 86, Short.MAX_VALUE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 544, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(120, 120, 120))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                .addComponent(Btn_eliminarLaptop)
+                                .addGap(76, 76, 76))))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(btn_regresarEliminarlaptop)
+                        .addGap(0, 0, Short.MAX_VALUE))))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(9, Short.MAX_VALUE)
+                .addComponent(btn_regresarEliminarlaptop)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(51, 51, 51)
+                .addComponent(Btn_eliminarLaptop)
+                .addGap(34, 34, 34))
+        );
+
+        javax.swing.GroupLayout eliminarLaptopLayout = new javax.swing.GroupLayout(eliminarLaptop.getContentPane());
+        eliminarLaptop.getContentPane().setLayout(eliminarLaptopLayout);
+        eliminarLaptopLayout.setHorizontalGroup(
+            eliminarLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        eliminarLaptopLayout.setVerticalGroup(
+            eliminarLaptopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        eliminarPC.setSize(new java.awt.Dimension(727, 508));
+
+        jPanel4.setBackground(new java.awt.Color(102, 102, 255));
+
+        btn_eliminarListaPC.setText("Eliminar");
+        btn_eliminarListaPC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_eliminarListaPCMouseClicked(evt);
+            }
+        });
+
+        btn_regresarEliminarPC.setText("X");
+        btn_regresarEliminarPC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_regresarEliminarPCMouseClicked(evt);
+            }
+        });
+
+        tb_listaPC1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "IP", "Mask", "Hostname", "RAM", "Espacio", "Tipo", "Tarjeta grafica"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.Boolean.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane4.setViewportView(tb_listaPC1);
+        if (tb_listaPC1.getColumnModel().getColumnCount() > 0) {
+            tb_listaPC1.getColumnModel().getColumn(6).setResizable(false);
+            tb_listaPC1.getColumnModel().getColumn(6).setHeaderValue("Tarjeta grafica");
+        }
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(630, Short.MAX_VALUE)
+                .addComponent(btn_eliminarListaPC)
+                .addGap(24, 24, 24))
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btn_regresarEliminarPC)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel4Layout.createSequentialGroup()
+                    .addGap(44, 44, 44)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 611, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(72, Short.MAX_VALUE)))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btn_regresarEliminarPC)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 436, Short.MAX_VALUE)
+                .addComponent(btn_eliminarListaPC)
+                .addGap(20, 20, 20))
+            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel4Layout.createSequentialGroup()
+                    .addGap(18, 18, 18)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(77, Short.MAX_VALUE)))
+        );
+
+        javax.swing.GroupLayout eliminarPCLayout = new javax.swing.GroupLayout(eliminarPC.getContentPane());
+        eliminarPC.getContentPane().setLayout(eliminarPCLayout);
+        eliminarPCLayout.setHorizontalGroup(
+            eliminarPCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(eliminarPCLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        eliminarPCLayout.setVerticalGroup(
+            eliminarPCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(eliminarPCLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Principal");
@@ -527,12 +757,12 @@ public class GUI extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(bg_principal, javax.swing.GroupLayout.DEFAULT_SIZE, 845, Short.MAX_VALUE)
+                .addComponent(bg_principal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bg_principal, javax.swing.GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE)
+            .addComponent(bg_principal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -653,7 +883,7 @@ public class GUI extends javax.swing.JFrame {
             ex.printStackTrace();
         }
     }//GEN-LAST:event_btn_listaPCMouseClicked
-    private void regresar(){
+    private void regresar() {
         this.setVisible(true);
     }
     private void btn_listarLaptopMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_listarLaptopMouseClicked
@@ -698,6 +928,87 @@ public class GUI extends javax.swing.JFrame {
         JF_listarLaptop.setVisible(false);
     }//GEN-LAST:event_jButton1MouseClicked
 
+    private void btn_eliminarlaptopMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_eliminarlaptopMouseClicked
+        CRUD.setVisible(false);
+        JP_crear.setVisible(false);
+        JP_listar.setVisible(false);
+        JP_eliminar.setVisible(true);
+    }//GEN-LAST:event_btn_eliminarlaptopMouseClicked
+
+    private void Btn_eliminarLaptopMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_eliminarLaptopMouseClicked
+        if (tb_listaLaptop1.getSelectedRow() >= 0) {
+            int r = JOptionPane.showConfirmDialog(tb_listaLaptop1, "Desea elimnar laptop????", "Eliminar producto", YES_NO_OPTION);
+            if (r == 0) {
+                laptops.remove(tb_listaLaptop1.getSelectedRow());
+                try {
+
+                    //limpiar tabla
+                    tb_listaLaptop.setModel(new javax.swing.table.DefaultTableModel(
+                            new Object[][]{},
+                            new String[]{
+                                "IP", "Mask", "Hostname", "Marca", "Pantalla", "RGB"
+                            }
+                    ));
+                    // TODO add your handling code here:
+                    for (Laptop t : laptops) {
+                        Object[] row = {t.getIpAddress(), t.getMask(), t.getHostname(), t.getMarca(), t.getPantalla(), t.isRGB()};
+                        DefaultTableModel modelo = (DefaultTableModel) tb_listaLaptop.getModel();
+                        modelo.addRow(row);
+                        tb_listaLaptop.setModel(modelo);
+                    }
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+                JOptionPane.showMessageDialog(this, "Laptop Elimniado exitosamente");
+            }
+
+        }
+    }//GEN-LAST:event_Btn_eliminarLaptopMouseClicked
+
+    private void btn_regresarEliminarlaptopMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_regresarEliminarlaptopMouseClicked
+        regresar();
+        jPanel3.setVisible(false);
+    }//GEN-LAST:event_btn_regresarEliminarlaptopMouseClicked
+
+    private void btn_eliminarListaPCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_eliminarListaPCMouseClicked
+        if (tb_listaPC1.getSelectedRow() >= 0) {
+            int r = JOptionPane.showConfirmDialog(tb_listaPC1, "Desea elimnar PC????", "Eliminar producto", YES_NO_OPTION);
+            if (r == 0) {
+                laptops.remove(tb_listaPC1.getSelectedRow());
+
+                try {
+
+                    //limpiar tabla
+                    tb_listaPC1.setModel(new javax.swing.table.DefaultTableModel(
+                            new Object[][]{},
+                            new String[]{
+                                "IP", "Mask", "Hostname", "RAM", "Espacio", "Tipo", "Tarjeta grafica"
+                            }
+                    ));
+                    // TODO add your handling code here:
+                    for (PC_Escritorio t : pcs) {
+                        Object[] row = {t.getIpAddress(), t.getMask(), t.getHostname(), t.getRAM(), t.getStorage(), t.getStorageType(), t.isTarjetaGrafica()};
+                        DefaultTableModel modelo = (DefaultTableModel) tb_listaPC1.getModel();
+                        modelo.addRow(row);
+                        tb_listaPC1.setModel(modelo);
+                    }
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+                JOptionPane.showMessageDialog(this, "PC Elimniada exitosamente");
+            }
+        }
+    }//GEN-LAST:event_btn_eliminarListaPCMouseClicked
+
+    private void btn_regresarEliminarPCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_regresarEliminarPCMouseClicked
+        regresar();
+        jPanel4.setVisible(false);
+    }//GEN-LAST:event_btn_regresarEliminarPCMouseClicked
+
+    private void btn_eliminarPCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_eliminarPCMouseClicked
+        eliminarPC.setVisible(true);
+    }//GEN-LAST:event_btn_eliminarPCMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -735,6 +1046,7 @@ public class GUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Btn_PC;
+    private javax.swing.JButton Btn_eliminarLaptop;
     private javax.swing.JFrame CRUD;
     private javax.swing.JFrame JF_crearLaptop;
     private javax.swing.JFrame JF_crearPC;
@@ -768,6 +1080,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JTextField JTF_storage1;
     private javax.swing.JTabbedPane JTP_crud;
     private javax.swing.JPanel bg_crearPC;
+    private javax.swing.JPanel bg_eliminar;
     private javax.swing.JPanel bg_laptop;
     private javax.swing.JPanel bg_listar;
     private javax.swing.JPanel bg_principal;
@@ -775,23 +1088,35 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton btn_agregarPC;
     private javax.swing.JButton btn_agregarPC1;
     private javax.swing.JButton btn_crud;
+    private javax.swing.JButton btn_eliminarListaPC;
+    private javax.swing.JButton btn_eliminarPC;
+    private javax.swing.JButton btn_eliminarlaptop;
     private javax.swing.JRadioButton btn_hdd;
     private javax.swing.JButton btn_ingresar;
     private javax.swing.JButton btn_listaPC;
     private javax.swing.JButton btn_listarLaptop;
+    private javax.swing.JButton btn_regresarEliminarPC;
+    private javax.swing.JButton btn_regresarEliminarlaptop;
     private javax.swing.JRadioButton btn_sdd;
     private javax.swing.JCheckBox cb_RGB;
     private javax.swing.JCheckBox cb_tarjetag;
+    private javax.swing.JFrame eliminarLaptop;
+    private javax.swing.JFrame eliminarPC;
     private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JButton regresar;
-    private javax.swing.JButton regresar1;
     private javax.swing.ButtonGroup storageType;
     private javax.swing.JTable tb_listaLaptop;
+    private javax.swing.JTable tb_listaLaptop1;
     private javax.swing.JTable tb_listaPC;
+    private javax.swing.JTable tb_listaPC1;
     // End of variables declaration//GEN-END:variables
 
     ArrayList<PC_Escritorio> pcs = new ArrayList<>();
